@@ -12,8 +12,6 @@ complete <- function(directory, id = 1:332) {
   ## ...
   ## where 'id' is the monitor ID number and 'nobs' is the
   ## number of complete cases
-  
-  
-  ## Do the work here
+
   
 }
