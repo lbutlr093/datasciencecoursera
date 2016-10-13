@@ -13,6 +13,7 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
   ## in the 'id' vector (ignoring NA values)
   ## NOTE: Do not round the results
   
+  
   ## Directory - changed back at the end
   setwd("~/Documents/code/datasciencecoursera/specdata")
   
@@ -23,6 +24,7 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
   sumVector <- vector(mode="numeric", length=length(id)) # hold all of the sums
   countVector <- vector(mode="numeric", length=length(id)) # hold all of the counts
   
+  ## Grab the values from each .csv
   for (i in seq_along(id)) {
     mydata <- read.csv(id[i]) #hacky method to read only the first csv in id
     mycol <- mydata[pollutant] #return only the values of "pollutant" arg
