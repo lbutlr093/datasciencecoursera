@@ -26,7 +26,7 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
   
   ## Grab the values from each .csv
   for (i in seq_along(id)) {
-    mydata <- read.csv(id[i]) #hacky method to read only the first csv in id
+    mydata <- read.csv(id[i])
     mycol <- mydata[pollutant] #return only the values of "pollutant" arg
     sum <- sum(mycol, na.rm = TRUE) #sum the non NA values
     count <- colSums(!is.na(mycol)) #count the non NA values

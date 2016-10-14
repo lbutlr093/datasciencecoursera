@@ -14,4 +14,36 @@ complete <- function(directory, id = 1:332) {
   ## number of complete cases
 
   
+  ## Directory - changed back at the end
+  setwd("~/Documents/code/datasciencecoursera/specdata")
+  
+  ## Id to .csv file name
+  csvVector <- id
+  for (index in seq_along(csvVector)) { 
+    csvVector[index] <- paste(csvVector[index], ".csv", sep="")
+  }
+  
+  ## Set up dataframe for correct dimensions and column names
+  dataFrame <- data.frame(matrix(ncol = 2, nrow = length(id)))
+  colnames(dataFrame)[1] <- "id"
+  colnames(dataFrame)[2] <- "nobs"
+  
+  ## Set id values
+  for (i in seq_along(id)) {
+    dataFrame[i, 1] <- id[i]
+  }
+  
+  ## Set nobs values
+  nobsVector <- vector(mode="numeric", length=length(id))
+  for (i in seq_along(csvVector)) {
+    mydata <- read.csv(csvVector[i])
+    completeCase <- sum(complete.cases(mydata))
+    dataFrame[i, 2] <- completeCase
+  }
+  
+  print(dataFrame)
+  
+  ## Clean-up
+  setwd("~/Documents/code/datasciencecoursera/")
+  
 }
