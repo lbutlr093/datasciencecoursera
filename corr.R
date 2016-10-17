@@ -9,6 +9,8 @@ corr <- function(directory, threshold = 0) {
   
   ## Return a numeric vector of correlations
   ## NOTE: Do not round the result!
+ 
+  setwd("~/Documents/code/datasciencecoursera/specdata")
   
   
 }
