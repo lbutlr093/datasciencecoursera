@@ -27,3 +27,12 @@ sapply(s, function(x) colMeans(x[, c("Ozone", "Solar.R", "Wind")]))   ## simplif
 
 sapply(s, function(x) colMeans(x[, c("Ozone", "Solar.R", "Wind")], na.rm = TRUE))
                                                   ## remove NA values before computing the mean
+
+
+
+## Car examples
+library(datasets)                                 ## loading the datasets library
+data(mtcars)                                      ## bringing in the mtcars dataset
+
+tapply(mtcars$hp, mtcars$cyl, mean)               ## finding mpg based on the number of cylinders
+sapply(split(mtcars$mpg, mtcars$cyl), mean)       ## same functionality
